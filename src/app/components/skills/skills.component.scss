@@ -1,0 +1,108 @@
+.skills { background: var(--color-surface-alt); }
+
+.skills__header {
+  text-align: center;
+  margin-bottom: 60px;
+  .section-subheading { margin: 0 auto; }
+  .section-label { justify-content: center; }
+}
+
+.skills__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-bottom: 48px;
+}
+
+.skill-group {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--transition-base);
+  &:hover { box-shadow: var(--shadow-md); }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--color-border);
+
+    .group-icon {
+      font-size: 1.3rem;
+      width: 40px; height: 40px;
+      background: var(--color-accent-light);
+      border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    h3 {
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+  }
+}
+
+.skill-list { display: flex; flex-direction: column; gap: 14px; }
+
+.skill-item {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+  }
+}
+
+.skill-name { font-size: 0.85rem; font-weight: 500; color: var(--color-primary); }
+.skill-percent { font-size: 0.75rem; font-weight: 600; color: var(--color-accent); }
+
+.skill-bar {
+  height: 5px;
+  background: var(--color-surface-alt);
+  border-radius: 100px;
+  overflow: hidden;
+
+  &__fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 1.2s cubic-bezier(0.22, 0.61, 0.36, 1) 0.3s;
+
+    &.bar-expert      { background: linear-gradient(90deg, #1B4FD8, #3B82F6); }
+    &.bar-advanced    { background: linear-gradient(90deg, #0891B2, #22D3EE); }
+    &.bar-intermediate{ background: linear-gradient(90deg, #6366F1, #A78BFA); }
+  }
+}
+
+.skills__badges {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.badges-title {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.badges-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 768px) {
+  .skills__grid { grid-template-columns: 1fr; }
+}

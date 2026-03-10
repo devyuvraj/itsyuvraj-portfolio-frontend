@@ -1,0 +1,48 @@
+<section id="skills" class="section skills">
+  <div class="container">
+    <div class="skills__header reveal">
+      <span class="section-label">Technical Skills</span>
+      <h2 class="section-heading">My <em>Tech Stack</em> & Expertise</h2>
+      <p class="section-subheading">
+        {{ data.profile.experience }}+ years of building enterprise-grade applications across the full stack.
+        Specialized in Angular ecosystem and Node.js backends.
+      </p>
+    </div>
+
+    <div class="skills__grid">
+      @for (group of skillGroups; track group.category; let i = $index) {
+        <div class="skill-group reveal delay-{{i+1}}">
+          <div class="skill-group__header">
+            <span class="group-icon">{{ group.icon }}</span>
+            <h3>{{ group.category }}</h3>
+          </div>
+          <div class="skill-list">
+            @for (skill of group.skills; track skill.name) {
+              <div class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-percent">{{ animatedBars ? skill.level : 0 }}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-bar__fill"
+                       [style.width]="animatedBars ? skill.level + '%' : '0%'"
+                       [class]="getBarClass(skill.level)">
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </div>
+
+    <div class="skills__badges reveal delay-3">
+      <h4 class="badges-title">Other expertise & practices</h4>
+      <div class="badges-wrap">
+        @for (badge of badges; track badge) {
+          <span class="chip chip-neutral">{{ badge }}</span>
+        }
+      </div>
+    </div>
+  </div>
+</section>

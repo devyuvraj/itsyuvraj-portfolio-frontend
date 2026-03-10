@@ -1,0 +1,71 @@
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 20px 0;
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    background: rgba(248,247,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+    padding: 14px 0;
+    box-shadow: var(--shadow-sm);
+  }
+
+  &__inner {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+
+  &__logo {
+    display: flex; align-items: center; gap: 10px; cursor: pointer; text-decoration: none;
+    .logo-mark {
+      width: 36px; height: 36px; background: var(--color-accent); color: #fff;
+      border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
+    }
+    .logo-text {
+      font-family: var(--font-display); font-size: 1rem; font-weight: 600; color: var(--color-primary);
+    }
+  }
+
+  &__nav {
+    display: flex; align-items: center; gap: 32px;
+  }
+}
+
+.nav-links { display: flex; align-items: center; gap: 4px; }
+
+.nav-link {
+  padding: 7px 14px; border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 500;
+  color: var(--color-secondary); cursor: pointer; transition: all var(--transition-fast);
+  &:hover, &.active { color: var(--color-accent); background: var(--color-accent-light); }
+}
+
+.btn-sm { padding: 9px 20px; font-size: 0.85rem; }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px; cursor: pointer;
+  background: none; border: none; padding: 6px;
+  span {
+    display: block; width: 22px; height: 2px; background: var(--color-primary);
+    border-radius: 2px; transition: all 0.3s ease; transform-origin: center;
+  }
+  &.active {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger { display: flex; }
+  .navbar__nav {
+    position: fixed; top: 0; left: 0; right: 0; height: 100dvh;
+    background: var(--color-surface); flex-direction: column;
+    justify-content: center; gap: 40px;
+    transform: translateX(-100%);
+    transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+    &.open { transform: translateX(0); }
+  }
+  .nav-links { flex-direction: column; gap: 8px; }
+  .nav-link { font-size: 1.2rem; padding: 10px 24px; }
+}

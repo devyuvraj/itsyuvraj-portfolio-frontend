@@ -1,0 +1,136 @@
+.about__grid {
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 80px;
+  align-items: start;
+}
+
+.about__text { }
+
+.about__para {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--color-secondary);
+  margin-bottom: 18px;
+  strong { color: var(--color-primary); font-weight: 600; }
+}
+
+.about__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 28px 0;
+}
+
+.meta-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--color-secondary);
+  svg { color: var(--color-accent); flex-shrink: 0; }
+}
+
+.about__links {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Highlight Cards */
+.about__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.highlight-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+
+  &:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md), 0 0 0 1px rgba(27,79,216,0.08);
+    transform: translateY(-2px);
+  }
+
+  .highlight-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    background: var(--color-accent-light);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h4 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 4px;
+    font-family: var(--font-body);
+  }
+
+  p {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    color: var(--color-muted);
+    margin: 0;
+  }
+}
+
+.achievement-badge {
+  padding: 18px 20px;
+  background: linear-gradient(135deg, #FEF9E7 0%, #FEF3C7 100%);
+  border: 1px solid #FDE68A;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.badge-content {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  .badge-icon {
+    font-size: 1.5rem;
+    width: 44px; height: 44px;
+    background: #FEF3C7;
+    border-radius: var(--radius-sm);
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #FDE68A;
+  }
+
+  strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #92400E;
+    margin-bottom: 2px;
+  }
+
+  span {
+    font-size: 0.78rem;
+    color: #B45309;
+    line-height: 1.5;
+  }
+}
+
+@media (max-width: 960px) {
+  .about__grid { grid-template-columns: 1fr; gap: 48px; }
+  .about__cards { max-width: 560px; }
+}
+
+@media (max-width: 480px) {
+  .about__links { flex-direction: column; }
+}

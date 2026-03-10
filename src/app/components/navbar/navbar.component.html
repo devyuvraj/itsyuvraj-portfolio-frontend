@@ -1,0 +1,28 @@
+<header class="navbar" [class.scrolled]="isScrolled">
+  <div class="container navbar__inner">
+    <a class="navbar__logo" (click)="scrollTo('#hero')">
+      <span class="logo-mark">YS</span>
+      <span class="logo-text">Yuvraj Soni</span>
+    </a>
+
+    <nav class="navbar__nav" [class.open]="isMobileMenuOpen">
+      <ul class="nav-links">
+        @for (link of navLinks; track link.href) {
+          <li>
+            <a class="nav-link"
+               [class.active]="activeSection === link.href.slice(1)"
+               (click)="scrollTo(link.href)">{{ link.label }}</a>
+          </li>
+        }
+      </ul>
+      <a href="mailto:yuvrajsoni92@gmail.com" class="btn btn-primary btn-sm">
+        Hire Me
+      </a>
+    </nav>
+
+    <button class="hamburger" [class.active]="isMobileMenuOpen"
+            (click)="isMobileMenuOpen = !isMobileMenuOpen" aria-label="Toggle Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

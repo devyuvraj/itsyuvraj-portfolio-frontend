@@ -1,0 +1,81 @@
+<section id="hero" class="hero">
+  <div class="hero__bg">
+    <div class="hero__grid"></div>
+    <div class="hero__blob blob-1"></div>
+    <div class="hero__blob blob-2"></div>
+  </div>
+
+  <div class="container hero__inner">
+    <div class="hero__content">
+      <div class="hero__badge reveal">
+        <span class="badge-dot"></span>
+        Available for opportunities
+      </div>
+
+      <h1 class="hero__title reveal delay-1">
+        Hi, I'm<br />
+        <span class="name-highlight">Yuvraj Soni</span>
+      </h1>
+
+      <p class="hero__subtitle reveal delay-2">
+        <span class="typewriter">{{ displayText }}</span><span class="cursor">|</span>
+      </p>
+
+      <p class="hero__desc reveal delay-3">
+        Full Stack MEAN Stack Developer with <strong>{{ data.profile.experience }}+ years</strong> of experience
+        crafting scalable enterprise applications. Currently building
+        <strong>Cruise Personnel Systems</strong> at TCS, Indore.
+      </p>
+
+      <div class="hero__actions reveal delay-4">
+        <button class="btn btn-primary" (click)="scrollToContact()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Get in Touch
+        </button>
+        <button class="btn btn-outline" (click)="downloadResume()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download CV
+        </button>
+        <a href="https://linkedin.com/in/yuvraj-soni-9aa765107/" target="_blank" rel="noopener" class="btn btn-ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__visual reveal-right delay-2">
+      <div class="code-card">
+        <div class="code-card__header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span class="code-card__filename">profile.ts</span>
+        </div>
+        <pre class="code-card__body"><code><span class="kw">const</span> <span class="var">yuvraj</span> = &#123;
+  <span class="key">name</span>:       <span class="str">"Yuvraj Soni"</span>,
+  <span class="key">role</span>:       <span class="str">"Full Stack Dev"</span>,
+  <span class="key">experience</span>: <span class="num">{{ data.profile.experience }}</span>,  <span class="cmt">// years</span>
+  <span class="key">company</span>:    <span class="str">"TCS"</span>,
+  <span class="key">location</span>:   <span class="str">"Indore, IN"</span>,
+  <span class="key">stack</span>: [
+    <span class="str">"Angular"</span>, <span class="str">"Node.js"</span>,
+    <span class="str">"MongoDB"</span>, <span class="str">"RxJS"</span>,
+    <span class="str">"NgRx"</span>, <span class="str">"Express"</span>
+  ],
+  <span class="key">openTo</span>:     <span class="bool">true</span>
+&#125;;</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero__stats reveal delay-5">
+    <div class="container">
+      <div class="stats-row">
+        @for (stat of stats; track stat.label) {
+          <div class="stat-item">
+            <span class="stat-value">{{ stat.value }}</span>
+            <span class="stat-label">{{ stat.label }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
