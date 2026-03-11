@@ -39,6 +39,31 @@
                 "glob": "sitemap.xml",
                 "input": "src",
                 "output": "/"
+              },
+              {
+                "glob": "favicon.ico",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "favicon-*.png",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "apple-touch-icon.png",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "android-chrome-*.png",
+                "input": "src",
+                "output": "/"
+              },
+              {
+                "glob": "site.webmanifest",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [

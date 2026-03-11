@@ -28,7 +28,7 @@ node dist/portfolio/server/server.mjs
 Replace `GTM-XXXXXXX` in `src/index.html` with your real GTM container ID.
 
 ### 2. Canonical URL
-Replace all `https://yuvrajsoni.dev` with your actual domain in:
+Replace all `https://www.itsyuvraj.com` with your actual domain in:
 - `src/index.html`
 - `src/sitemap.xml`
 - `src/app/services/seo.service.ts`

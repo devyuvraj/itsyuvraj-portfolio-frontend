@@ -22,8 +22,8 @@ export class SeoService {
     title: 'Yuvraj Soni | Full Stack MEAN Stack Developer',
     description: 'Full Stack Developer with 7+ years in Angular, Node.js, MongoDB, RxJS, NgRx. Currently at TCS building enterprise applications.',
     keywords: 'Yuvraj Soni, Full Stack Developer, MEAN Stack, Angular, Node.js, MongoDB, TCS, Indore',
-    image: 'https://yuvrajsoni.dev/assets/og-image.jpg',
-    url: 'https://yuvrajsoni.dev',
+    image: 'https://www.itsyuvraj.com/assets/og-image.jpg',
+    url: 'https://www.itsyuvraj.com',
     type: 'website'
   };
 

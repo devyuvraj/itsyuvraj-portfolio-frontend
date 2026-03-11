@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yuvrajsoni.dev/sitemap.xml
+Sitemap: https://www.itsyuvraj.com/sitemap.xml
