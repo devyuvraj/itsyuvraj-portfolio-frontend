@@ -64,7 +64,6 @@ export class ContactComponent implements OnInit {
   get f() { return this.contactForm.controls; }
 
   onSubmit(): void {
-    debugger;
     this.submitted = true;
     this.submitSuccess = false;
     this.submitError = false;
