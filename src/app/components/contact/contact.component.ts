@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef, inject, PLATFORM_ID } from "@angular/cor
 import { CommonModule, isPlatformBrowser } from "@angular/common";
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angular/forms";
 import { GtmService } from "../../services/gtm.service";
+import { HttpClient } from "@angular/common/http";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-contact",
@@ -15,10 +17,13 @@ export class ContactComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   private fb = inject(FormBuilder);
   private gtm = inject(GtmService);
+  private http = inject(HttpClient);
 
   contactForm: FormGroup;
   submitted = false;
   isSubmitting = false;
+  submitSuccess = false;
+  submitError = false;
 
   contactInfo = [
     {
@@ -49,8 +54,8 @@ export class ContactComponent implements OnInit {
 
   constructor() {
     this.contactForm = this.fb.group({
-      name:    ["", [Validators.required, Validators.minLength(2)]],
-      email:   ["", [Validators.required, Validators.email]],
+      name: ["", [Validators.required, Validators.minLength(2)]],
+      email: ["", [Validators.required, Validators.email]],
       subject: ["", Validators.required],
       message: ["", [Validators.required, Validators.minLength(20)]]
     });
@@ -59,17 +64,40 @@ export class ContactComponent implements OnInit {
   get f() { return this.contactForm.controls; }
 
   onSubmit(): void {
+    debugger;
     this.submitted = true;
+    this.submitSuccess = false;
+    this.submitError = false;
+
     if (this.contactForm.invalid) return;
+
     this.isSubmitting = true;
     this.gtm.trackContactFormSubmit();
-    // Integrate your email service here (e.g., EmailJS, Formspree, or custom API)
-    setTimeout(() => {
-      this.isSubmitting = false;
-      this.submitted = false;
-      this.contactForm.reset();
-      alert("Message sent! I\'ll get back to you soon.");
-    }, 1200);
+
+    const { name, email, subject, message } = this.contactForm.value;
+
+    const payload = {
+      access_key: environment.web3formsKey,
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+      from_name: "itsyuvraj.com Portfolio"
+    };
+
+    this.http.post("https://api.web3forms.com/submit", payload)
+      .subscribe({
+        next: () => {
+          this.isSubmitting = false;
+          this.submitSuccess = true;
+          this.submitted = false;
+          this.contactForm.reset();
+        },
+        error: () => {
+          this.isSubmitting = false;
+          this.submitError = true;
+        }
+      });
   }
 
   ngOnInit(): void {
