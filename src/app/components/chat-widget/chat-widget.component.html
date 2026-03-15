@@ -1,0 +1,73 @@
+<!-- Floating Button -->
+<button class="chat-btn" [class.open]="isOpen" (click)="toggleChat()" aria-label="Chat with AI">
+  <span class="notif-dot" [style.display]="isOpen ? 'none' : 'block'"></span>
+  <svg *ngIf="!isOpen" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+  </svg>
+  <svg *ngIf="isOpen" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+  </svg>
+</button>
+
+<!-- Chat Window -->
+<div class="chat-window" [class.open]="isOpen">
+
+  <!-- Header -->
+  <div class="chat-header">
+    <div class="avatar">YS</div>
+    <div class="header-info">
+      <div class="header-name">Yuvraj's AI Assistant</div>
+      <div class="header-status">
+        <span class="status-dot"></span>
+        Ask me anything about Yuvraj
+      </div>
+    </div>
+    <span class="powered-badge">Claude AI</span>
+  </div>
+
+  <!-- Messages -->
+  <div class="messages" #messagesContainer>
+    @for (msg of messages; track $index) {
+      <div class="msg" [class.bot]="msg.role === 'bot'" [class.user]="msg.role === 'user'">
+        <div class="msg-avatar">{{ msg.role === 'bot' ? 'YS' : 'You' }}</div>
+        <div>
+          @if (msg.isTyping) {
+            <div class="msg-bubble typing">
+              <span></span><span></span><span></span>
+            </div>
+          } @else {
+            <div class="msg-bubble" [innerHTML]="msg.text"></div>
+          }
+
+          <!-- Suggestions only on first bot message -->
+          @if ($index === 0 && showSuggestions) {
+            <div class="suggestions">
+              @for (s of suggestions; track s) {
+                <button class="suggestion-btn" (click)="sendSuggestion(s)">{{ s }}</button>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Input -->
+  <div class="input-area">
+    <textarea
+      #inputRef
+      [(ngModel)]="inputText"
+      (keydown)="onEnter($event)"
+      placeholder="Ask about Yuvraj..."
+      rows="1"
+      [disabled]="isTyping"
+      (input)="$any($event.target).style.height='auto'; $any($event.target).style.height=Math.min($any($event.target).scrollHeight,80)+'px'"
+    ></textarea>
+    <button class="send-btn" (click)="send()" [disabled]="isTyping || !inputText.trim()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5">
+        <line x1="22" y1="2" x2="11" y2="13"/>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+      </svg>
+    </button>
+  </div>
+</div>

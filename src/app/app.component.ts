@@ -10,6 +10,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { ChatWidgetComponent } from './components/chat-widget/chat-widget.component';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +25,8 @@ import { FooterComponent } from './components/footer/footer.component';
     ExperienceComponent,
     ProjectsComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    ChatWidgetComponent
   ],
   template: `
     <app-navbar></app-navbar>
@@ -35,6 +37,7 @@ import { FooterComponent } from './components/footer/footer.component';
       <app-experience></app-experience>
       <app-projects></app-projects>
       <app-contact></app-contact>
+      <app-chat-widget></app-chat-widget>
     </main>
     <app-footer></app-footer>
   `
