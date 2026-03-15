@@ -1,10 +1,11 @@
-export default async function handler(req: any, res: any) {
-  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
+const handler = async (req: any, res: any) => {
+  if (req.method !== "POST") {
+    return res.status(405).json({ error: "Method not allowed" });
+  }
 
   const { messages, system } = req.body;
 
   try {
-    // Fix roles — Gemini needs alternating user/model
     const contents = messages
       .filter((m: any) => m.content?.trim())
       .map((m: any) => ({
@@ -14,7 +15,6 @@ export default async function handler(req: any, res: any) {
 
     const apiKey = process.env["GEMINI_API_KEY"];
 
-    // ← catch missing key early
     if (!apiKey) {
       console.error("GEMINI_API_KEY is not set!");
       return res.status(500).json({ error: "API key not configured" });
@@ -33,8 +33,6 @@ export default async function handler(req: any, res: any) {
     );
 
     const data = await response.json() as any;
-
-    // ← log full response so you can debug in Vercel logs
     console.log("Gemini response:", JSON.stringify(data));
 
     if (!response.ok) {
@@ -51,4 +49,6 @@ export default async function handler(req: any, res: any) {
     console.error("Handler error:", error);
     return res.status(500).json({ error: error.message || "Internal server error" });
   }
-}
+};
+
+module.exports = handler;
