@@ -37,9 +37,9 @@ import { ChatWidgetComponent } from './components/chat-widget/chat-widget.compon
       <app-experience></app-experience>
       <app-projects></app-projects>
       <app-contact></app-contact>
-      <app-chat-widget></app-chat-widget>
     </main>
     <app-footer></app-footer>
+    <app-chat-widget></app-chat-widget>
   `
 })
 export class AppComponent implements OnInit {
