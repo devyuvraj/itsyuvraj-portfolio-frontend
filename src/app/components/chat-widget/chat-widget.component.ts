@@ -15,11 +15,11 @@ PERSONAL INFO:
 - Name: Yuvraj Soni
 - Email: yuvrajsoni92@gmail.com
 - Phone: +91 9785113836
-- Location: Indore, Madhya Pradesh, India
+- Location: Banswara, Rajasthan, India
 - LinkedIn: linkedin.com/in/yuvraj-soni-9aa765107/
 - Portfolio: itsyuvraj.com
 
-EXPERIENCE: 6.8+ years as Full Stack / MEAN Stack Developer
+EXPERIENCE: 7+ years as Full Stack / MEAN Stack Developer
 
 CURRENT ROLE:
 - Company: Tata Consultancy Services (TCS), Dec 2022 – Present

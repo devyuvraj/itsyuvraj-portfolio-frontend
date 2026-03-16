@@ -32,12 +32,12 @@ export class ContactComponent implements OnInit {
       value: "yuvrajsoni92@gmail.com",
       href: "mailto:yuvrajsoni92@gmail.com"
     },
-    {
-      icon: "📱",
-      label: "Phone",
-      value: "+91 9785113836",
-      href: "tel:+919785113836"
-    },
+    // {
+    //   icon: "📱",
+    //   label: "Phone",
+    //   value: "+91 9785113836",
+    //   href: "tel:+919785113836"
+    // },
     {
       icon: "💼",
       label: "LinkedIn",
@@ -47,7 +47,7 @@ export class ContactComponent implements OnInit {
     {
       icon: "📍",
       label: "Location",
-      value: "Indore, MP, India",
+      value: "Banswara, Rajasthan, India",
       href: null
     }
   ];
