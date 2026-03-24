@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild, inject, PLATFORM_ID } from "@
 import { CommonModule, isPlatformBrowser } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { HttpClient } from "@angular/common/http";
+import { DataService } from "../../services/data.service";
 
 interface Message {
   role: "bot" | "user";
@@ -73,6 +74,7 @@ export class ChatWidgetComponent implements OnInit {
 
   private platformId = inject(PLATFORM_ID);
   private http = inject(HttpClient);
+  data = inject(DataService);
   
   Math = Math;
   isOpen = false;
@@ -86,12 +88,6 @@ export class ChatWidgetComponent implements OnInit {
     }
   ];
 
-  suggestions = [
-    "Angular experience?",
-    "Current role at TCS?",
-    "Available for hire?",
-    "Top projects?"
-  ];
   showSuggestions = true;
 
   // Keep conversation history for Claude API
@@ -142,7 +138,7 @@ export class ChatWidgetComponent implements OnInit {
       system: SYSTEM_PROMPT
     }).subscribe({
       next: (res) => {
-        const reply = res.reply || "I\'m having trouble right now. Please email yuvrajsoni92@gmail.com directly!";
+        const reply = res.reply || `I'm having trouble right now. Please email ${this.data.profile.email} directly!`;
         this.removeTyping();
         this.messages.push({ role: "bot", text: reply });
         this.history.push({ role: "assistant", content: reply });
@@ -153,7 +149,7 @@ export class ChatWidgetComponent implements OnInit {
         this.removeTyping();
         this.messages.push({
           role: "bot",
-          text: "Sorry, something went wrong! Please reach Yuvraj at yuvrajsoni92@gmail.com 😊"
+          text: `Sorry, something went wrong! Please reach Yuvraj at ${this.data.profile.email} 😊`
         });
         this.isTyping = false;
         this.scrollToBottom();

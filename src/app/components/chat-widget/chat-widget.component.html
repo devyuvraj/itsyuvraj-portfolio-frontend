@@ -42,7 +42,7 @@
           <!-- Suggestions only on first bot message -->
           @if ($index === 0 && showSuggestions) {
             <div class="suggestions">
-              @for (s of suggestions; track s) {
+              @for (s of data.chatSuggestions; track s) {
                 <button class="suggestion-btn" (click)="sendSuggestion(s)">{{ s }}</button>
               }
             </div>

@@ -238,6 +238,14 @@ export class DataService {
     { icon: "📍", label: "Location", value: "Indore, MP, India", href: null }
   ];
 
+  // ── Chat Widget Suggestions ───────────────────────────────────────
+  readonly chatSuggestions = [
+    "Angular experience?",
+    "Current role at TCS?",
+    "Available for hire?",
+    "Top projects?"
+  ];
+
   // ── Nav Links ─────────────────────────────────────────────────────
   readonly navLinks = [
     { label: "About", href: "#about" },
