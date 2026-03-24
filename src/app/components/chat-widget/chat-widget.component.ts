@@ -15,7 +15,6 @@ const SYSTEM_PROMPT = `You are an AI assistant for Yuvraj Soni's portfolio websi
 PERSONAL INFO:
 - Name: Yuvraj Soni
 - Email: yuvrajsoni92@gmail.com
-- Phone: +91 9785113836
 - Location: Banswara, Rajasthan, India
 - LinkedIn: linkedin.com/in/yuvraj-soni-9aa765107/
 - Portfolio: itsyuvraj.com
