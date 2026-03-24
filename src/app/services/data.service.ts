@@ -120,8 +120,8 @@ export class DataService {
       isCurrent: true,
       color: "#1B4FD8",
       highlights: [
-        "Led end-to-end development of the Cruise Personnel System Admin Panel using Angular 15, PrimeNG & Node.js",
-        "Engineered an Airtable-like reporting module with dynamic grouping, inline editing, cloning & real-time config sync",
+        "Led end-to-end development of the Cruise Personnel System Admin Panel using Angular 15, PrimeNG & Node.js, serving 5,000+ internal users",
+        "Engineered an Airtable-like reporting module with dynamic grouping, inline editing, cloning & real-time config sync, reducing manual data entry by 60%",
         "Architected component-driven frontend with lazy loading, shared modules & NgRx-based state management",
         "Developed secure RESTful APIs with Node.js, Express.js & MongoDB for user roles & live data sync",
         "Implemented token-based auth & interceptor-driven error handling for data consistency"
@@ -162,8 +162,8 @@ export class DataService {
       highlights: [
         "Developed HPFY.com Admin Panel — a centralized system managing 10+ healthcare eCommerce websites",
         "Engineered product catalog, coupon management, checkout workflows & report generation modules",
-        "Designed & integrated RESTful APIs for Angular–.Net communication, improving data sync speed",
-        "Collaborated with QA to reduce release turnaround and streamline UAT process",
+        "Designed & integrated RESTful APIs for Angular–.Net communication, improving data sync speed by 35%",
+        "Collaborated with QA to reduce release turnaround by 20% and streamline UAT process",
         "Refactored legacy code with modular architecture, improving platform scalability"
       ],
       tags: ["Angular 7", "TypeScript", "ASP.NET", "MySQL", "REST APIs"]
@@ -228,6 +228,27 @@ export class DataService {
       gradientFrom: "#EEF2FF",
       gradientTo: "#E0E7FF",
       emoji: "🏥"
+    },
+    {
+      title: "Angular 17 Portfolio",
+      subtitle: "Personal Brand & AI Chat Integration",
+      company: "Open Source Project",
+      category: "Personal",
+      categoryColor: "#10B981",
+      description: "A highly optimized, SEO-friendly developer portfolio showcasing modern UI/UX design. Features a centralized data store, intersection observer animations, and an integrated AI chat widget.",
+      highlights: [
+        "Standalone components with Angular 17 control flow",
+        "Custom AI chat assistant with typing state & predefined suggestions",
+        "100% centralized DataService acting as a headless CMS",
+        "Intersection Observer based reveal animations"
+      ],
+      stack: ["Angular 17", "TypeScript", "SCSS", "Claude AI", "Web3Forms"],
+      accentColor: "#10B981",
+      gradientFrom: "#ECFDF5",
+      gradientTo: "#D1FAE5",
+      emoji: "👨‍💻",
+      githubUrl: "https://github.com/devyuvraj/itsyuvraj-portfolio-frontend",
+      liveUrl: "https://www.itsyuvraj.com"
     }
   ];
 
