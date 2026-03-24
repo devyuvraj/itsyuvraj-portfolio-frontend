@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { GtmService } from '../../services/gtm.service';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,18 +13,11 @@ import { GtmService } from '../../services/gtm.service';
 export class NavbarComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   gtm = inject(GtmService);
+  data = inject(DataService);
 
   isScrolled = false;
   isMobileMenuOpen = false;
   activeSection = 'hero';
-
-  navLinks = [
-    { label: 'About',      href: '#about' },
-    { label: 'Skills',     href: '#skills' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Projects',   href: '#projects' },
-    { label: 'Contact',    href: '#contact' }
-  ];
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) this.setupScrollSpy();
@@ -47,6 +41,6 @@ export class NavbarComponent implements OnInit {
     if (!isPlatformBrowser(this.platformId)) return;
     const el = document.querySelector(href);
     el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    this.gtm.trackSectionView(href.replace('#',''));
+    this.gtm.trackSectionView(href.replace('#', ''));
   }
 }

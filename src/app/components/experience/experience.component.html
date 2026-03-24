@@ -9,7 +9,7 @@
     </div>
 
     <div class="timeline">
-      @for (exp of experiences; track exp.company; let i = $index; let last = $last) {
+      @for (exp of data.experiences; track exp.company; let i = $index; let last = $last) {
         <div class="timeline__item reveal delay-{{i+1}}">
           <div class="timeline__connector">
             <div class="timeline__dot" [style.background]="exp.color">

@@ -69,7 +69,7 @@
   <div class="hero__stats reveal delay-5">
     <div class="container">
       <div class="stats-row">
-        @for (stat of stats; track stat.label) {
+        @for (stat of data.stats; track stat.label) {
           <div class="stat-item">
             <span class="stat-value">{{ stat.value }}</span>
             <span class="stat-label">{{ stat.label }}</span>

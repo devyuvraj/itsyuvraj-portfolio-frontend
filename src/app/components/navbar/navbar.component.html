@@ -7,7 +7,7 @@
 
     <nav class="navbar__nav" [class.open]="isMobileMenuOpen">
       <ul class="nav-links">
-        @for (link of navLinks; track link.href) {
+        @for (link of data.navLinks; track link.href) {
           <li>
             <a class="nav-link"
                [class.active]="activeSection === link.href.slice(1)"

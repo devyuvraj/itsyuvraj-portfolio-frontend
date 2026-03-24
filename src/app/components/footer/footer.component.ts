@@ -1,5 +1,6 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 import { CommonModule } from "@angular/common";
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: "app-footer",
@@ -9,14 +10,8 @@ import { CommonModule } from "@angular/common";
   styleUrls: ["./footer.component.scss"]
 })
 export class FooterComponent {
+  data = inject(DataService);
   currentYear = new Date().getFullYear();
-  navLinks = [
-    { label: "About",      href: "#about" },
-    { label: "Skills",     href: "#skills" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects",   href: "#projects" },
-    { label: "Contact",    href: "#contact" }
-  ];
 
   scrollTo(href: string): void {
     document.querySelector(href)?.scrollIntoView({ behavior: "smooth" });

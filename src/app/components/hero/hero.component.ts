@@ -1,4 +1,3 @@
-
 import { Component, OnInit, ElementRef, inject, PLATFORM_ID } from "@angular/core";
 import { CommonModule, isPlatformBrowser } from "@angular/common";
 import { GtmService } from "../../services/gtm.service";
@@ -17,19 +16,10 @@ export class HeroComponent implements OnInit {
   private el = inject(ElementRef);
   data = inject(DataService);
 
-  words = ["Angular Expert", "MEAN Stack Dev", "Full Stack Engineer", "UI Architect"];
   currentWord = 0;
   displayText = "";
   isDeleting = false;
 
-  stats = [
-    { value: "7+", label: "Years Experience" },
-    { value: "3", label: "Companies" },
-    { value: "10+", label: "Projects Delivered" },
-    { value: "17", label: "Angular Versions" }
-  ];
-
-  // ✅ REPLACE WITH THIS
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     this.typeWriter();
@@ -41,7 +31,7 @@ export class HeroComponent implements OnInit {
   }
 
   private typeWriter(): void {
-    const word = this.words[this.currentWord];
+    const word = this.data.typewriterWords[this.currentWord];
     const speed = this.isDeleting ? 60 : 110;
 
     if (!this.isDeleting) {
@@ -54,7 +44,7 @@ export class HeroComponent implements OnInit {
       this.displayText = word.substring(0, this.displayText.length - 1);
       if (!this.displayText) {
         this.isDeleting = false;
-        this.currentWord = (this.currentWord + 1) % this.words.length;
+        this.currentWord = (this.currentWord + 1) % this.data.typewriterWords.length;
       }
     }
     setTimeout(() => this.typeWriter(), speed);
@@ -70,7 +60,7 @@ export class HeroComponent implements OnInit {
   downloadResume(): void {
     this.gtm.trackResumeDownload();
     const link = document.createElement("a");
-    link.href = "assets/Yuvraj_Soni_Resume.pdf";
+    link.href = this.data.profile.resumePath;
     link.download = "Yuvraj_Soni_Resume.pdf";
     link.click();
   }

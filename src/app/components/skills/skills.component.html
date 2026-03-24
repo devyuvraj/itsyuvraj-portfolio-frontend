@@ -10,7 +10,7 @@
     </div>
 
     <div class="skills__grid">
-      @for (group of skillGroups; track group.category; let i = $index) {
+      @for (group of data.skillGroups; track group.category; let i = $index) {
         <div class="skill-group reveal delay-{{i+1}}">
           <div class="skill-group__header">
             <span class="group-icon">{{ group.icon }}</span>
@@ -39,7 +39,7 @@
     <div class="skills__badges reveal delay-3">
       <h4 class="badges-title">Other expertise & practices</h4>
       <div class="badges-wrap">
-        @for (badge of badges; track badge) {
+        @for (badge of data.skillBadges; track badge) {
           <span class="chip chip-neutral">{{ badge }}</span>
         }
       </div>

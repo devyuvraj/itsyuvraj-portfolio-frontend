@@ -14,12 +14,6 @@ export class AboutComponent implements OnInit {
   private platformId = inject(PLATFORM_ID);
   data = inject(DataService);
 
-  highlights = [
-    { icon: "🎯", title: "Enterprise Focus", desc: "Built complex admin panels and dashboards serving thousands of users across fintech, hospitality, and healthcare domains." },
-    { icon: "🏗️", title: "Architecture First", desc: "Expert in lazy loading, NgRx state management, modular architecture, and scalable component-driven design patterns." },
-    { icon: "⚡", title: "Performance Driven", desc: "Specialized in Angular change detection optimization, lazy data rendering, and API performance tuning for enterprise scale." }
-  ];
-
   ngOnInit(): void {
     if (!isPlatformBrowser(this.platformId)) return;
     const obs = new IntersectionObserver(

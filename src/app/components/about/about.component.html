@@ -52,7 +52,7 @@
       </div>
 
       <div class="about__cards">
-        @for (h of highlights; track h.title; let i = $index) {
+        @for (h of data.highlights; track h.title; let i = $index) {
           <div class="highlight-card reveal delay-{{i+1}}">
             <span class="highlight-icon">{{ h.icon }}</span>
             <div>

@@ -17,7 +17,7 @@
     <div class="footer__nav">
       <h4>Navigation</h4>
       <ul>
-        @for (link of navLinks; track link.href) {
+        @for (link of data.footerLinks; track link.href) {
           <li><a (click)="scrollTo(link.href)">{{ link.label }}</a></li>
         }
       </ul>

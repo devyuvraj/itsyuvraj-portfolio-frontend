@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from "@angula
 import { GtmService } from "../../services/gtm.service";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "../../../environments/environment";
+import { DataService } from "../../services/data.service";
 
 @Component({
   selector: "app-contact",
@@ -18,39 +19,13 @@ export class ContactComponent implements OnInit {
   private fb = inject(FormBuilder);
   private gtm = inject(GtmService);
   private http = inject(HttpClient);
+  data = inject(DataService);
 
   contactForm: FormGroup;
   submitted = false;
   isSubmitting = false;
   submitSuccess = false;
   submitError = false;
-
-  contactInfo = [
-    {
-      icon: "📧",
-      label: "Email",
-      value: "yuvrajsoni92@gmail.com",
-      href: "mailto:yuvrajsoni92@gmail.com"
-    },
-    // {
-    //   icon: "📱",
-    //   label: "Phone",
-    //   value: "+91 9785113836",
-    //   href: "tel:+919785113836"
-    // },
-    {
-      icon: "💼",
-      label: "LinkedIn",
-      value: "linkedin.com/in/yuvraj-soni-9aa765107",
-      href: "https://linkedin.com/in/yuvraj-soni-9aa765107/"
-    },
-    {
-      icon: "📍",
-      label: "Location",
-      value: "Banswara, Rajasthan, India",
-      href: null
-    }
-  ];
 
   constructor() {
     this.contactForm = this.fb.group({
